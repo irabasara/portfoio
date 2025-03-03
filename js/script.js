@@ -49,17 +49,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-const mySwiper = new Swiper(".swiper-container", {
-  direction: "vertical",
+const mySwiper = new Swiper(".portfolioSwiper", {
+  direction: "horizontal",
+  slidesPerView: 1,
+  spaceBetween: 15,
   loop: true,
-  pagination: {
-    el: '.swiper-pagination',
+  navigation: {
+    nextEl: ".button-next",
+    prevEl: ".button-prev",
   },
-  grabCursor: true,
-  speed: 1000,
-  paginationClickable: true,
-  parallax: true,
-  autoplay: false,
-  effect: "slide",
-  mousewheelControl: 1
+
+  breakpoints: {
+    480: {
+      slidesPerView: 2,
+      spaceBetween: 30
+    },
+    // when window width is >= 768px
+    991: {
+      slidesPerView: 3,
+      spaceBetween: 30
+    }
+  }
 });
